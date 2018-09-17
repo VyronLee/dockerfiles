@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+
+  redir-443:
+    image: VyronLee/redir
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "443:443/tcp"
+      - "443:443/udp"
+    environment:
+      LOCAL_ADDR: 172.18.0.20
+      LOCAL_PORT: 443
+      REMOTE_ADDR: 208.67.222.222
+      REMOTE_PORT: 443
+      RATE: 30mbit
+      BURST: 30kb
+    networks:
+      default:
+        ipv4_address: 172.18.0.20
