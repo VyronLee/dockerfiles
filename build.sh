@@ -7,7 +7,7 @@ IMAGE_NAMES=($(find . -type d -not -wholename "./.*" -not -wholename "." -exec b
 for NAME in ${IMAGE_NAMES[@]}; do
     echo "building image:" $NAME
     cd $NAME
-    docker build -t $DOCKER_PASS/$NAME:latest . || { echo "build failed!"; exit 1; }
+    docker build -t vyronlee/$NAME:latest . || { echo "build failed!"; exit 1; }
     docker push $DOCKER_PASS/$NAME
     cd -
 done
