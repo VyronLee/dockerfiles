@@ -1,11 +1,11 @@
 #
 # Dockerfile for frp
 #
-FROM golang:1.9-alpine
+FROM golang:alpine
 
 MAINTAINER VyronLee <lwz_jz@hotmail.pro>
 
-ENV FRP_VER 0.16.0
+ENV FRP_VER 0.21.0
 ENV FRP_URL https://github.com/fatedier/frp/archive/v$FRP_VER.tar.gz
 ENV FRP_DIR frp-$FRP_VER
 ENV FRP_BUILD_DIR /go/src/github.com/fatedier

@@ -2,11 +2,11 @@
 # Dockerfile for gost
 #
 
-FROM golang:1.9-alpine
+FROM golang:alpine
 
 MAINTAINER VyronLee <lwz_jz@hotmail.com>
 
-ENV GOST_VER 2.4
+ENV GOST_VER 2.5
 ENV GOST_URL https://github.com/ginuerzh/gost/archive/v$GOST_VER.tar.gz
 ENV GOST_DIR gost-$GOST_VER
 ENV GOST_BUILD_DIR /go/src/github.com/ginuerzh
