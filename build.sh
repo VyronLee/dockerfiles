@@ -8,7 +8,7 @@ for NAME in ${IMAGE_NAMES[@]}; do
     echo "building image:" $NAME
     cd $NAME
     docker build -t vyronlee/$NAME:latest . || { echo "build failed!"; exit 1; }
-    docker push $DOCKER_PASS/$NAME
+    docker push vyronlee/$NAME
     cd -
 done
 
