@@ -4,6 +4,4 @@ builder:
     - ~/.docker:/.docker:ro
   environment:
     - GIT_REPO=https://github.com/VyronLee/dockerfiles.git
-    - DOCKERFILE_PATH=/test
-    - IMAGE_NAME=VyronLee/test:latest
   privileged: true

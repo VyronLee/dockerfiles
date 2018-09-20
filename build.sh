@@ -8,6 +8,6 @@ image_names=( \
 
 for name in ${image_names[@]}; do
     echo "building image: $name"
-    docker-compose run --rm -e DOCKERFILE_PATH=/$name -e IMAGE_NAME=VyronLee/$name builder || echo "build error!"
+    docker-compose run --rm -e DOCKERFILE_PATH=/$name -e IMAGE_NAME=VyronLee/$name builder || { echo "build error!"; exit 1; }
 done
 
