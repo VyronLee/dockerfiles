@@ -2,7 +2,9 @@
 
 echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 
-for NAME in $(ls -d */ | xargs basename); do
+IMAGES=($(ls -d */ | xargs basename))
+
+for NAME in ${IMAGES[@]}; do
     echo "building image: $NAME"
     cd $NAME
     docker build -t $DOCKER_PASS/$NAME:latest . || { echo "build failed!"; exit 1; }
