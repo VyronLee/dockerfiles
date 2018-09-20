@@ -1,7 +1,0 @@
-builder:
-  image: tutum/builder
-  volumes:
-    - ~/.docker:/.docker:ro
-  environment:
-    - GIT_REPO=https://github.com/VyronLee/dockerfiles.git
-  privileged: true

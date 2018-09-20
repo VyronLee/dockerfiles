@@ -1,13 +1,12 @@
 #!/bin/bash
 
-image_names=( \
-    frp \
-    gost \
-    redir \
-)
+echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 
-for name in ${image_names[@]}; do
-    echo "building image: $name"
-    docker-compose run --rm -e DOCKERFILE_PATH=/$name -e IMAGE_NAME=VyronLee/$name builder || { echo "build error!"; exit 1; }
+for NAME in $(ls -d */ | xargs basename); do
+    echo "building image: $NAME"
+    cd $NAME
+    docker build -t $DOCKER_PASS/$NAME:latest . || { echo "build failed!"; exit 1; }
+    docker push $DOCKER_PASS/$NAME
+    cd -
 done
 
